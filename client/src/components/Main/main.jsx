@@ -1,18 +1,32 @@
-import React from "react";
-import { Container ,Spinner} from "react-bootstrap";
-import DataItem from "../DataItem/dataItem";
+import React,{useState} from "react";
+import { Container, Row, Col } from "react-bootstrap";
 
-const Main = ({data,isloading}) => {
-    
-    return(
-        isloading ? <Spinner animation="border" /> : 
-        data.length === 0 ?<h1 className="text-center mt-5">No Match Found</h1> :
-        (
-            <Container>
-                {data.map((element) => <DataItem key={element._id} dataItem = {element} />)}
-            </Container>
-        )
-    );
-}
+import RightSection from "../RightSection/rightSection";
+import LeftSection from "../LeftSection/leftSection";
+
+const Main = ({ data, isloading }) => {
+  
+  const initialFilters = {
+    Ascending:undefined,
+    Frequency:"",
+    Unit:"",
+    Source:""
+  }
+
+  const [filters, setFilters] = useState(initialFilters);
+  
+  return (
+    <Container>
+      <Row>
+        <Col md={3}>
+          <LeftSection setFilters={setFilters} />
+        </Col>
+        <Col md={9}>
+          <RightSection data={data} isloading={isloading} filters={filters} />
+        </Col>
+      </Row>
+    </Container>
+  );
+};
 
 export default Main;

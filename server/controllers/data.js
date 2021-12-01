@@ -1,8 +1,6 @@
 import dataModel from "../models/data.js";
 
 export const getData = async (req,res) => {
- 
-        const {query} = req.query;
       
         try {
       
@@ -14,6 +12,7 @@ export const getData = async (req,res) => {
           res.status(404).json({ message: err.message });
         }
 };
+
 export const getDataBySearch = async (req,res) => {
  
         const {query} = req.query;

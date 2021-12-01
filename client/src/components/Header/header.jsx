@@ -28,7 +28,7 @@ const Header = ({setData,setIsLoading}) => {
       };
 
     return (
-        <Navbar bg="dark" expand="lg" variant="dark">
+        <Navbar bg="dark" expand="lg" variant="dark" className="sticky-top">
         <Container fluid>
             <Navbar.Brand href="/">Navbar</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />

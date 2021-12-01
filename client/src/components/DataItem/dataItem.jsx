@@ -10,7 +10,7 @@ const DataItem = ({dataItem,key}) => {
     setReadMore(!readMore);
   }
   return (
-    <Card className="my-2" key={key} >
+    <Card className="my-2" >
       <Card.Body>
         <Card.Title>{dataItem.Title}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">{dataItem.Unit}, {dataItem.Frequency}, {dataItem.Source}</Card.Subtitle>
